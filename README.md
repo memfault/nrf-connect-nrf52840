@@ -13,7 +13,7 @@ To build and flash this example to an nRF52840-DK (PCA10056), run the following
 commands:
 
 ```bash
-❯ west init .
+❯ west init -l memfault_demo_app
 ❯ west update
 ❯ west build -b nrf52840dk_nrf52840 memfault_demo_app
 ❯ west flash
