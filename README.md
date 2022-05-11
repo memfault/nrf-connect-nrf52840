@@ -25,3 +25,40 @@ Open a serial terminal to access the console:
 # for example, pypserial-miniterm
 ❯ pyserial-miniterm --raw /dev/ttyACM0 115200
 ```
+
+The console has several Memfault test commands available:
+
+```bash
+uart:~$ mflt help
+mflt - Memfault Test Commands
+Subcommands:
+  reboot              :trigger a reboot and record it using memfault
+  get_core            :gets the core
+  clear_core          :clear the core
+  crash               :trigger a crash
+  test_log            :Writes test logs to log buffer
+  trigger_logs        :Trigger capture of current log buffer contents
+  hang                :trigger a hang to test watchdog functionality
+  export              :dump chunks collected by Memfault SDK using
+                       https://mflt.io/chunk-data-export
+  trace               :Capture an example trace event
+  get_device_info     :display device information
+  post_chunks         :Post Memfault data to cloud
+  trigger_heartbeat   :Trigger an immediate capture of all heartbeat metrics
+  get_latest_release  :checks to see if new ota payload is available
+```
+
+For example, to test the coredump functionality:
+
+1. run `mflt crash` and wait for the board to reset
+2. run `mflt get_core` to confirm the coredump was saved
+3. run `mflt export` to print out the base-64 chunks:
+
+   ```plaintext
+   uart:~$ mflt export
+   <inf> <mflt>: MC:SE4DpwIEAwEKbW5yZjUyX2V4YW1wbGUJZTAuMC4xBmFhC0Z5RE1gF8EEhgFpSW5mbyBsb2chAmxXYXJuaW5nIGxvZyEDakVycm9yIGxvZyE=:
+   <inf> <mflt>: MC:gE6A/A==:
+   ```
+
+4. upload the chunks to Memfault. see here for details:
+   https://docs.memfault.com/docs/mcu/self-serve/#post-chunks-to-memfault
