@@ -6,11 +6,11 @@ manifest:
     - name: sdk-nrf
       remote: nrf-connect-sdk
       path: nrf
-      revision: v1.9.1
+      revision: v2.0.0
       import: true
     - name: memfault-firmware-sdk
       url: https://github.com/memfault/memfault-firmware-sdk
       path: modules/memfault-firmware-sdk
-      revision: 0.30.4
+      revision: 0.31.1
   self:
     path: memfault_demo_app
