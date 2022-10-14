@@ -1,3 +1,12 @@
+> ARCHIVED
+>
+> NOTE: this repo is no longer maintained- it has been migrated to the Memfault
+> Firmware SDK Examples folder here:
+>
+> https://github.com/memfault/memfault-firmware-sdk/tree/master/examples/nrf-connect-sdk/nrf5
+
+---
+
 # nRF-Connect nrf52840 Memfault Example
 
 This is a small example application showing a Memfault integration running on an
